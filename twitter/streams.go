@@ -244,7 +244,7 @@ func (s *Stream) receive(body io.ReadCloser) {
 		}
 		select {
 		// send messages, data, or errors
-		case s.Messages <- getMessage(token):
+		case s.Messages <- token:
 			continue
 		// allow client to Stop(), even if not receiving
 		case <-s.done:
