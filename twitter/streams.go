@@ -259,7 +259,7 @@ func (s *Stream) receive(body io.ReadCloser) {
 func getMessage(token []byte) interface{} {
 	var data map[string]interface{}
 	// unmarshal JSON encoded token into a map for
-	err := json.Unmarshal(token, &data)
+	err := json.Marshal(token, &data)
 	if err != nil {
 		return err
 	}
